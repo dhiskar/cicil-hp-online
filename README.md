@@ -44,12 +44,29 @@ Cache lokal (localStorage, IndexedDB, dan file cadangan) juga dipisahkan per UID
 - Node.js (untuk Firebase CLI) atau cukup `npx firebase-tools`.
 - Java 11+ hanya jika ingin menjalankan emulator lokal.
 
+## 0. Lokasi menu Firebase Console (2026)
+
+Tampilan Firebase Console terbaru mengelompokkan menu berbeda dari tutorial lama. Gunakan daftar ini (ganti `PROJECT_ID` dengan Project ID Anda):
+
+| Kebutuhan | Menu di console | Link langsung |
+|---|---|---|
+| Daftarkan Web App | **Project Overview** → ikon **Web** `</>` / **Add app** | `https://console.firebase.google.com/project/PROJECT_ID/overview` |
+| Authentication | **Security → Authentication** | `https://console.firebase.google.com/project/PROJECT_ID/authentication` |
+| Metode login | **Authentication → Sign-in method** | `https://console.firebase.google.com/project/PROJECT_ID/authentication/providers` |
+| Firestore | **Databases & Storage → Firestore** | `https://console.firebase.google.com/project/PROJECT_ID/firestore` |
+| Aturan Firestore | **Firestore → Rules** | `https://console.firebase.google.com/project/PROJECT_ID/firestore/rules` |
+| Hosting | **Build → Hosting** | `https://console.firebase.google.com/project/PROJECT_ID/hosting` |
+| Project settings | Ikon gear ⚙️ di kanan atas | `https://console.firebase.google.com/project/PROJECT_ID/settings/general` |
+
+> Pada console versi lama, Authentication ada di **Build → Authentication**, sedangkan Firestore di **Build → Firestore Database**. Kalau menu tidak cocok, buka link langsung di tabel di atas.
+
 ## 1. Buat project Firebase
 
 1. Buka <https://console.firebase.google.com> → **Add project**.
-2. Setelah project dibuat, buka **Project settings** (ikon gear) → tab **General**.
-3. Di bagian **Your apps**, klik ikon **Web** (`</>`), beri nama aplikasi, lalu klik **Register app**.
-4. Salin objek `firebaseConfig` yang muncul.
+2. Setelah project dibuat, Anda akan berada di **Project Overview**.
+3. Klik ikon **Web** (`</>`) di tengah halaman, atau tombol **Add app** lalu pilih **Web**. (Bisa juga lewat **Project settings ⚙️ → General → Your apps**.)
+4. Beri nama aplikasi, klik **Register app**.
+5. Salin objek `firebaseConfig` yang muncul.
 
 ## 2. Isi konfigurasi
 
@@ -72,7 +89,7 @@ window.FIREBASE_CONFIG = {
 
 Di Firebase Console:
 
-1. **Build → Authentication → Get started**.
+1. Buka **Security → Authentication** (console lama: **Build → Authentication**), lalu klik **Get started**.
 2. Tab **Sign-in method**:
    - Aktifkan **Email/Password**.
    - Aktifkan **Google** (pilih email support), jika ingin tombol Google.
@@ -80,7 +97,7 @@ Di Firebase Console:
 
 ## 4. Buat Firestore
 
-1. **Build → Firestore Database → Create database**.
+1. **Databases & Storage → Firestore** (console lama: **Build → Firestore Database**), lalu klik **Create database**.
 2. Pilih **Production mode** (jangan test mode).
 3. Pilih lokasi terdekat, misalnya `asia-southeast2` (Jakarta).
 4. Deploy aturan keamanan dari repo ini:
